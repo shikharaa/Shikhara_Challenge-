@@ -1,0 +1,17 @@
+Challenge code in python
+
+
+import re
+
+num_test_cases = int(input())
+
+valid_card_pattern = re.compile(r'^[4-6]\d{3}(-?\d{4}){3}$')
+repeated_digits_pattern = re.compile(r'(\d)(-?\1){3,}')
+
+for _ in range(num_test_cases):
+    credit_card_number = input()
+
+    if valid_card_pattern.match(credit_card_number) and not repeated_digits_pattern.search(credit_card_number):
+        print('Valid')
+    else:
+        print('Invalid')
